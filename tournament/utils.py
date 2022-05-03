@@ -117,7 +117,7 @@ class DataRecorder(BaseRecorder):
 
 
 class StateRecorder(BaseRecorder):
-    def __init__(self, state_action_file, record_images=False):
+    def __init__(self, state_action_file, record_images=True):
         self._record_images = record_images
         self._f = open(state_action_file, 'wb')
 

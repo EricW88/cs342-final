@@ -31,7 +31,7 @@ def to_native(o):
 
 
 class AIRunner:
-    agent_type = 'state'
+    agent_type = 'image'
     is_ai = True
 
     def new_match(self, team: int, num_players: int) -> list:
@@ -45,7 +45,7 @@ class AIRunner:
 
 
 class TeamRunner:
-    agent_type = 'state'
+    agent_type = 'image'
     _error = None
     _total_act_time = 0
 
