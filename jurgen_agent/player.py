@@ -32,7 +32,7 @@ def extract_featuresV2(pstate, soccer_state, opponent_state, team_id):
     return features 
 
 class Team:
-    agent_type = 'state'
+    agent_type = 'image'
 
     def __init__(self):
         """

@@ -112,7 +112,7 @@ class Match:
     """
         Do not create more than one match per process (use ray to create more)
     """
-    def __init__(self, use_graphics=False, logging_level=None):
+    def __init__(self, use_graphics=True, logging_level=None):
         # DO this here so things work out with ray
         import pystk
         self._pystk = pystk
@@ -222,13 +222,13 @@ class Match:
             # Have each team produce actions (in parallel)
             if t1_can_act:
                 if t1_type == 'image':
-                    team1_actions_delayed = self._r(team1.act)(team1_state, team1_images)
+                    team1_actions_delayed = self._r(team1.act)(team1_state, team1_images, soccer_state)
                 else:
                     team1_actions_delayed = self._r(team1.act)(team1_state, team2_state, soccer_state)
 
             if t2_can_act:
                 if t2_type == 'image':
-                    team2_actions_delayed = self._r(team2.act)(team2_state, team2_images)
+                    team2_actions_delayed = self._r(team2.act)(team2_state, team2_images, soccer_state)
                 else:
                     team2_actions_delayed = self._r(team2.act)(team2_state, team1_state, soccer_state)
 
